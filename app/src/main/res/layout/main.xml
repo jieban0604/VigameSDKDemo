@@ -1,0 +1,187 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/holo_green_light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn_openad1"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="OpenAD:001"
+                android:textColor="#000000"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_openad2"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="OpenAD:002"
+                android:textColor="#000000"
+                android:visibility="visible" />
+            <Button
+                android:id="@+id/btn_openad3"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="OpenAD:003"
+                android:textColor="#000000"
+                android:visibility="visible" />
+            <Button
+                android:id="@+id/btn_closeAd"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="CloseAD" />
+
+            <Button
+                android:id="@+id/btn_pay"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="orderPay" />
+
+            <Button
+                android:id="@+id/btn_getCtrlFlag"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="getCtrlFlag" />
+
+            <Button
+                android:id="@+id/btn_dhm"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="useDhm" />
+
+            <Button
+                android:id="@+id/btn_openActivity"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="openActivity" />
+
+            <Button
+                android:id="@+id/btn_openNotice"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="openNotice" />
+
+            <Button
+                android:id="@+id/btn_openRank"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="openRank" />
+
+            <Button
+                android:id="@+id/btn_openUseragreement"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="openUserAgreement" />
+
+            <Button
+                android:id="@+id/btn_showExit"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="showExit" />
+
+            <Button
+                android:id="@+id/btn_xyxOnShow"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="触发-互推展示" />
+
+            <Button
+                android:id="@+id/btn_xyxOnClick"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="触发-互推点击" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="版本1.1.0" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

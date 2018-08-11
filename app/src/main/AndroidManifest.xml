@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
+
+    <supports-screens android:anyDensity="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"/>
+
+    <application
+        android:name="org.cocos2dx.cpp.MyApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+       <meta-data
+            android:name="com.vigame.sdk.appid"
+            android:value="10001" />
+       <meta-data
+            android:name="com.vigame.sdk.appkey"
+            android:value="abcdefg" />
+        <meta-data
+            android:name="com.vigame.sdk.prjid"
+            android:value="10001" /><!--10001,20350-->
+
+        <meta-data
+            android:name="com.vigame.sdk.channel"
+            android:value="${WB_CHANNEL}" />
+
+        <activity android:name="com.libVigame.VigameStartActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--入口Activity-->
+        <activity android:name="org.cocos2dx.cpp.AppActivity"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+
+  <feeinfo>
+    <ID>1</ID>
+    <price>1</price>
+	<desc>测试计费点1</desc>
+  </feeinfo>
+
+  <feeinfo>
+    <ID>2</ID>
+    <price>10</price>
+    <desc>测试计费点2</desc>
+  </feeinfo>
+
+  
+</data>

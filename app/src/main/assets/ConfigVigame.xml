@@ -1,0 +1,8 @@
+<ConfigVigame>
+    <GameOpenActivity>org.cocos2dx.cpp.AppActivity</GameOpenActivity>
+    <ScreenOrientation>portrait</ScreenOrientation>
+    <SupportAdPositions>splash,banner,pause,mfzs</SupportAdPositions>
+	<SplashFile>loadingbg.png</SplashFile>
+    <IsSDK>true</IsSDK><!--请勿修改该属性-->
+
+</ConfigVigame>

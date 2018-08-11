@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+//        applicationId "wb.gc.xmxx.zxb"
+        applicationId "com.qzf.bkegs.ty"//"com.example.myapplication"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        manifestPlaceholders = [
+            WB_CHANNEL:"common",
+            UMENG_APPKEY:"5af28874f29d9814690000fb"
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'//project(':app').file('libs')
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:26.+'
+    compile(name: 'libGCOffers-release', ext: 'aar')
+    compile(name: 'libPushService-release', ext: 'aar')
+    //百度广告（仅供测试）
+    compile(name: 'libAD_Baidu-release', ext: 'aar')
+    //GDT广告（仅供测试）
+    compile(name: 'libAD_GDT-release', ext: 'aar')
+    compile(name: 'libAndroidQuery-release', ext: 'aar')
+    //今日头条广告(仅供测试)
+//    compile(name: 'libAD_HeadlinesToday-release', ext: 'aar')
+//    compile(name: 'open_ad_sdk', ext: 'aar')
+//    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+
+    //玩转互联
+    compile(name: 'libAD_Uniplay-release', ext: 'aar')
+    //oneway
+    compile(name: 'libAD_OneWay-release', ext: 'aar')
+    //支付宝支付（仅供测试）
+    compile(name: 'libPayExt_AliPay-release', ext: 'aar')
+    compile(name: 'AliPayApp-release', ext: 'aar')
+    //Umeng统计（仅供测试）
+    compile(name: 'libTJ_UMeng-release', ext: 'aar')
+
+}
