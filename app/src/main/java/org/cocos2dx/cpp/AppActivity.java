@@ -145,7 +145,7 @@ public class AppActivity extends Activity {
 			}
 		});
 		freshButtonString();
-		ADNative.openAd("splash");
+		//ADNative.openAd("splash");
 
 	}
 
