@@ -203,9 +203,16 @@ public class AppActivity extends Activity {
 				ADNative.openAd("banner");
 				break;
 			case R.id.btn_openad3:
+				//获取可播放视频次数
 				int num = ADNative.getVideoLimitOpenNum();
 				Log.d(TAG,"VideoLimitOpenNum = " + num);
 				ADNative.openAd("home_mfzs");
+				break;
+			case R.id.btn_openad33:
+				//判断第5关能不能弹出广告
+				boolean isAd = ADNative.isAdBeOpenInLevel("level_fail_mfzs",5);
+				if(isAd)
+					ADNative.openAd("level_fail_mfzs");
 				break;
 			case R.id.btn_openad4:
 				ADNative.openAd("splash");

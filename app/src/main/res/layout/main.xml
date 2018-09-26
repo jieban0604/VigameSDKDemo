@@ -53,6 +53,19 @@
                 android:visibility="visible" />
 
             <Button
+                android:id="@+id/btn_openad33"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="OpenAD:level_fail_mfzs"
+                android:textColor="#000000"
+                android:visibility="visible" />
+
+            <Button
                 android:id="@+id/btn_openad4"
                 android:layout_width="match_parent"
                 android:layout_height="35dip"
