@@ -23,7 +23,7 @@
                 android:layout_marginRight="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:001"
+                android:text="OpenAD:pause"
                 android:textColor="#000000"
                 android:visibility="visible" />
 
@@ -36,7 +36,7 @@
                 android:layout_marginTop="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:002"
+                android:text="OpenAD:banner"
                 android:textColor="#000000"
                 android:visibility="visible" />
             <Button
@@ -48,9 +48,23 @@
                 android:layout_marginTop="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:003"
+                android:text="OpenAD:home_mfzs"
                 android:textColor="#000000"
                 android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_openad4"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="OpenAD:splash"
+                android:textColor="#000000"
+                android:visibility="visible" />
+
             <Button
                 android:id="@+id/btn_closeAd"
                 android:layout_width="match_parent"

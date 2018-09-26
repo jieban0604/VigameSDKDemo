@@ -145,8 +145,6 @@ public class AppActivity extends Activity {
 			}
 		});
 		freshButtonString();
-		//ADNative.openAd("splash");
-
 	}
 
 	void freshButtonString(){
@@ -209,9 +207,11 @@ public class AppActivity extends Activity {
 				Log.d(TAG,"VideoLimitOpenNum = " + num);
 				ADNative.openAd("home_mfzs");
 				break;
+			case R.id.btn_openad4:
+				ADNative.openAd("splash");
+				break;
 			case R.id.btn_closeAd:
 				ADNative.closeAd("banner");
-//				ADNative.closeAd("pause");
 				break;
 			case R.id.btn_dhm:
 				String dhm = "111111";

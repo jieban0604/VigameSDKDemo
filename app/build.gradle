@@ -8,7 +8,7 @@ android {
 //        applicationId "wb.gc.xmxx.zxb"
         applicationId "com.qzf.bkegs.ty"//"com.example.myapplication"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         manifestPlaceholders = [
@@ -41,10 +41,6 @@ dependencies {
     //GDT广告（仅供测试）
     compile(name: 'libAD_GDT-release', ext: 'aar')
     compile(name: 'libAndroidQuery-release', ext: 'aar')
-    //今日头条广告(仅供测试)
-//    compile(name: 'libAD_HeadlinesToday-release', ext: 'aar')
-//    compile(name: 'open_ad_sdk', ext: 'aar')
-//    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
 
     //玩转互联
     compile(name: 'libAD_Uniplay-release', ext: 'aar')
