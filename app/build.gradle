@@ -5,8 +5,7 @@ android {
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-//        applicationId "wb.gc.xmxx.zxb"
-        applicationId "com.qzf.bkegs.ty"//"com.example.myapplication"
+        applicationId "com.qzf.bkegs.ty"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
