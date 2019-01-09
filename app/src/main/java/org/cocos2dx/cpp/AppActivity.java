@@ -37,6 +37,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.libAD.ADDef;
 import com.libAD.ADManager;
 import com.libAD.ADParam;
 import com.libPay.BasePayAgent;
@@ -102,6 +103,15 @@ public class AppActivity extends Activity {
 			@Override
 			public void onOpenResult(ADParam adParam, int result) {
 				// TODO Auto-generated method stub
+				//判断广告是否打开成功
+				if(result==ADParam.ADOpenResult_Success){
+
+				}
+				//判断广告类型是否是视频
+				if(adParam.getType().equals(ADDef.AD_TypeName_Video)){
+
+				}
+
 				String log = "onOpenResult:"+result+",type="+adParam.getType()+",agent="+adParam.getAgentName();
 				Log.d(TAG,log);
 				Toast.makeText(AppActivity.this,log,Toast.LENGTH_SHORT).show();
