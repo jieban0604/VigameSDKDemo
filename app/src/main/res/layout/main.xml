@@ -199,6 +199,17 @@
                 android:onClick="onClickBtn"
                 android:text="触发-互推点击" />
 
+            <Button
+                android:id="@+id/btn_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:onClick="onClickBtn"
+                android:text="投诉反馈" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

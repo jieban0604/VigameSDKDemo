@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.dn.tgxm.gg"//"com.qzf.bkegs.ty"
@@ -30,25 +29,31 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    //testCompile 'junit:junit:4.12'
-    compile 'com.android.support:support-v4:26.+'
-    compile(name: 'libGCOffers-release', ext: 'aar')
-    compile(name: 'libPushService-release', ext: 'aar')
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //用到的Android扩展库
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:percent:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //基础模块
+    implementation(name: 'libPushService-release', ext: 'aar')
+    implementation(name: 'libGCOffers-release', ext: 'aar')
+    implementation(name: 'libVigameLoader-release', ext: 'aar')
+
     //百度广告（仅供测试）
-    compile(name: 'libAD_Baidu-release', ext: 'aar')
+    implementation(name: 'ad/libAD_Baidu-release', ext: 'aar')
     //GDT广告（仅供测试）
-    compile(name: 'libAD_GDT-release', ext: 'aar')
-    compile(name: 'libAndroidQuery-release', ext: 'aar')
-
-    //玩转互联
-    compile(name: 'libAD_Uniplay-release', ext: 'aar')
+    implementation(name: 'ad/libAD_GDT-release', ext: 'aar')
+    implementation(name: 'ad/libAndroidQuery-release', ext: 'aar')
+    //头条广告（仅供测试）
+    implementation(name: 'ad/libAD_HeadlinesToday-release', ext: 'aar')
+    //玩转互联（仅供测试）
+    implementation(name: 'ad/libAD_Uniplay-release', ext: 'aar')
     //oneway
-    compile(name: 'libAD_OneWay-release', ext: 'aar')
+    implementation(name: 'ad/libAD_OneWay-release', ext: 'aar')
     //支付宝支付（仅供测试）
-    compile(name: 'libPayExt_AliPay-release', ext: 'aar')
-    compile(name: 'AliPayApp-release', ext: 'aar')
+    implementation(name: 'pay/libPayExt_AliPay-release', ext: 'aar')
+    implementation(name: 'pay/AliPayApp-release', ext: 'aar')
     //Umeng统计（仅供测试）
-    compile(name: 'libTJ_UMeng-release', ext: 'aar')
-
+    implementation(name: 'tj/libTJ_UMeng-release', ext: 'aar')
 }
