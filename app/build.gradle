@@ -13,6 +13,9 @@ android {
             WB_CHANNEL:"common",
             UMENG_APPKEY:"5af28874f29d9814690000fb"
         ]
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
     }
     buildTypes {
         release {
@@ -29,7 +32,6 @@ repositories {
 }
 
 dependencies {
-
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //用到的Android扩展库
     implementation 'com.android.support:support-v4:28.0.0'
@@ -46,6 +48,8 @@ dependencies {
     implementation(name: 'ad/libAD_GDT-release', ext: 'aar')
     implementation(name: 'ad/libAndroidQuery-release', ext: 'aar')
     //头条广告（仅供测试）
+    implementation 'com.android.support:percent:28.0.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
     implementation(name: 'ad/libAD_HeadlinesToday-release', ext: 'aar')
     //玩转互联（仅供测试）
     implementation(name: 'ad/libAD_Uniplay-release', ext: 'aar')
