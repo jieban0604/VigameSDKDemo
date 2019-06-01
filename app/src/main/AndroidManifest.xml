@@ -23,7 +23,7 @@
             android:value="abcdefg" />
         <meta-data
             android:name="com.vigame.sdk.prjid"
-            android:value="333351" /><!--10001,20350-->
+            android:value="333360" /><!--10001,20350-->
 
         <meta-data
             android:name="com.vigame.sdk.channel"
