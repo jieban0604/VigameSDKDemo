@@ -60,6 +60,7 @@ import com.vigame.xyx.XYXItem;
 import com.vigame.xyx.XYXNative;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class AppActivity extends Activity {
     private static final String TAG = "AppActivity";
@@ -283,7 +284,9 @@ public class AppActivity extends Activity {
                 XYXConfig config = XYXNative.getConfig();
                 ArrayList<XYXItem> list = config.getItemList();
                 if (list != null && list.size() > 0) {
-                    XYXItem item = list.get(0);
+					//此处随机仅为了测试，产品中应以实际索引为参数
+                    int index = new Random().nextInt(list.size());
+                    XYXItem item = list.get(index);
                     config.handleClick(item);
                 }
             }
