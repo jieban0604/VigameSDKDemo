@@ -1,4 +1,3 @@
-
 ~~（gitbook线上文档：http://vigame.cn/_book/index.html）~~
 
 # 修订日志  
@@ -115,13 +114,13 @@ public class MyApplication extends Application {
 
 # 2.调用方法详解  
 ## 2.1基础功能模块  
-### 2.1.1 初始化
+### 2.1.1 初始化（必接）
 
 ```
 CoreNative.init();
 ```
 
-### 2.1.2 设置退出的代码
+### 2.1.2 设置退出的代码（必接）
 
 ```
 PayNative.setGameExitCallback(new Runnable() {
@@ -186,7 +185,7 @@ Feedback.open();
 ```
 注：用户协议的内容可通过assets/agrement.html修改  
 ## 2.2 计费相关  
-### 2.2.1 初始化
+### 2.2.1 初始化（必接）
 
 ```
 PayNative.init();
@@ -235,7 +234,7 @@ PayNative.isExitGame();
 ```
 返回值：true-SDK支持退出  false-不支持退出
 
-### 2.2.5 调用退出
+### 2.2.5 调用退出（必接）
 
 ```
 PayNative.openExitGame();
@@ -326,7 +325,7 @@ PayNative.openMoreGame();
 ```
 
 ## 2.3 广告相关  
-### 2.3.1 初始化
+### 2.3.1 初始化（必接）
 
 ```
 ADNative.init();
@@ -389,7 +388,7 @@ result：奖励结果类型：0成功  1失败  2取消
 num：奖励数量  
 reason：通知字符串  
 
-### 2.3.3 打开广告
+### 2.3.3 打开广告（必接）
 
 ```
 ADNative.openAd(String adPositionName);
@@ -444,7 +443,7 @@ ADNative.isAdBeOpenInLevel(String adPositionname,int lv);
 返回值：true-可出现   false-不可出现
 
 ## 2.4  统计相关 
-### 2.4.1 初始化  
+### 2.4.1 初始化  （必接）
 
 ```
 TJNative.init();
@@ -500,6 +499,21 @@ if (list != null && list.size() > 0) {
 }
 ```
 
+# 3.混淆过滤  
+
+
+```
+-keep public class com.libVigame.**
+-keepclassmembers class com.libVigame.**{*;}
+-keep public class com.libAD.**
+-keepclassmembers class com.libAD.**{*;}
+-keep public class com.libPay.**
+-keepclassmembers class com.libPay.**{*;}
+-keep class com.google.extra.platform.Utils
+-keepclassmembers public class com.google.extra.platform.Utils{*;}
+```
+
+
 # 4.产品参数配置   
 ## 4.1 配置产品参数  
 
@@ -517,7 +531,7 @@ if (list != null && list.size() > 0) {
     android:value="333360" />
 <meta-data
     android:name="com.vigame.sdk.channel"
-    android:value="${WB_CHANNEL}" />
+    android:value="default" />
 ```
 
 ## 4.2 配置游戏   
@@ -532,18 +546,59 @@ SplashFile  | 默认的闪屏文件（assets中） | 否
 WithSplashAD | 是否出现闪屏广告（默认出现） | 否
 
 
+# 5.FAQ
+
+**5.1 我的游戏应该接入哪些功能？**  
+解答：  
+接入文档中所有标记“必接”的接口都需要接入。如含有计费功能还需要接入PayNative.orderPay购买接口。其他接口是否接入由项目运营人员视情况而定。
+
+**5.2 如何测试广告？**  
+解答：  
+需请使用demo中的包名和产品参数，并在build.gradle中引入广告补丁，即可进行测试。注意：更换包名或产品参数，将可能导致广告加载失败。
+
+**5.3 为什么使用有些广告位名称无法展现广告？**  
+解答：  
+因为每个项目所用到的广告位名称有所区别。使用Demo中的参数时，以下常用广告位名称可直接出广告：
+
+| 名称             | 广告类型 |
+| ---------------- | -------- |
+| banner           | 横幅     |
+| home             | 插屏     |
+| pause            | 插屏     |
+| exit_game        | 插屏     |
+| level_restart    | 插屏     |
+| level_fail       | 插屏     |
+| level_win        | 插屏     |
+| game_win         | 插屏     |
+| game_fail        | 插屏     |
+| game_pause       | 插屏     |
+| level_fail_mfzs  | 视频     |
+| rotary_mfzs      | 视频     |
+| home_mfzs        | 视频     |
+| gift_mfzs        | 视频     |
+| double_fail_mfzs | 视频     |
+| dj_mfzs          | 视频     |
+| double_mfzs      | 视频     |
+| item_mfzs        | 视频     |
+| sign_game        | 视频     |
+
+其他广告位名称，可能无法出广告。只需保证正确调用即可。
+
+ **5.4 开屏(splash)和唤醒(game_awaken)广告，如何埋点？**  
+ 解答：  
+ 这两个广告位名称无需做埋点，按照SDK接入流程正常接入即可自动触发。
+
+**5.5 如何测试计费?**  
+解答：  
+在build.gradle中引入计费补丁进行测试，通常为支付宝。注意assets目录中需要放置feeedata_ali.xml文件，其中的内容根据游戏计费设置自行配制。
+
+**5.6 sdk接入成功后需要提供什么？**  
+解答：
+需要提供完整的Android工程文件，包括已编译好的so文件以及引用的本地模块。
+
+**5.7 为什么需要提供工程？是否有安全隐患？**  
+解答：  
+提供工程文件的意义在于我们可以自行制作渠道上线包及针对广告做运营控制，将可以大大降低双方的沟通成本和工作量。  
+关于安全隐患，也不必担心。安卓工程本身并无法还原游戏源码。如果工程中有部分java代码不希望公开，可通过混淆的jar文件进行提供。
     
 
-# 5.混淆过滤  
-
-
-```
--keep public class com.libVigame.**
--keepclassmembers class com.libVigame.**{*;}
--keep public class com.libAD.**
--keepclassmembers class com.libAD.**{*;}
--keep public class com.libPay.**
--keepclassmembers class com.libPay.**{*;}
--keep class com.google.extra.platform.Utils
--keepclassmembers public class com.google.extra.platform.Utils{*;}
-```
