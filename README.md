@@ -1,3 +1,4 @@
+
 ~~（gitbook线上文档：http://vigame.cn/_book/index.html）~~
 
 # 修订日志  
@@ -582,15 +583,16 @@ WithSplashAD | 是否出现闪屏广告（默认出现） | 否
 | item_mfzs        | 视频     |
 | sign_game        | 视频     |
 
-其他广告位名称，可能无法出广告。只需保证正确调用即可。 
+其他广告位名称，可能无法出广告。只需保证正确调用即可。
 
-**5.4 开屏(splash)和唤醒(game_awaken)广告，如何埋点？**  
+ **5.4 开屏(splash)和唤醒(game_awaken)广告，如何埋点？**  
  解答：  
  这两个广告位名称无需做埋点，按照SDK接入流程正常接入即可自动触发。
-
+ 
 **5.5 如何测试计费?**  
 解答：  
-在build.gradle中引入计费补丁进行测试，通常为支付宝。注意assets目录中需要放置feeedata_ali.xml文件，其中的内容根据游戏计费设置自行配制。
+在build.gradle中引入计费补丁进行测试，通常为支付宝。
+注意assets目录中需要放置ConfigPay.xml和feeedata_ali.xml文件。其中feedata_ali.xml的内容根据游戏计费设置自行配制。
 
 **5.6 sdk接入成功后需要提供什么？**  
 解答：

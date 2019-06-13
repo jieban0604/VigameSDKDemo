@@ -1,0 +1,11 @@
+<Config>
+    <Market>huawei</Market>
+    <DefalultPay>
+        <DefalultOperator
+            CMCC="alipay"
+            UNICOM="alipay"
+            TELECOM="alipay"
+            Other="alipay"
+        />
+    </DefalultPay>
+</Config>
