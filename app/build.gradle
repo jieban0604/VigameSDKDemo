@@ -56,8 +56,16 @@ dependencies {
     //oneway
     implementation(name: 'ad/libAD_OneWay-release', ext: 'aar')
     //支付宝支付（仅供测试）
-    implementation(name: 'pay/libPayExt_AliPay-release', ext: 'aar')
-    implementation(name: 'pay/AliPayApp-release', ext: 'aar')
+    implementation(name: 'pay/ali/libPayExt_AliPay-release', ext: 'aar')
+    implementation(name: 'pay/ali/AliPayApp-release', ext: 'aar')
     //Umeng统计（仅供测试）
     implementation(name: 'tj/libTJ_UMeng-release', ext: 'aar')
+
+    //微信支付相关
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation(name: 'pay/wechat/libSocialManager-release', ext:'aar')
+    implementation(name: 'pay/wechat/libSocial_WeChat-release', ext:'aar')
+    implementation(name: 'pay/wechat/libPayExt_WeChat-release', ext:'aar')
+
+
 }

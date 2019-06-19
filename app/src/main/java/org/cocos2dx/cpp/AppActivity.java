@@ -27,7 +27,9 @@
 package org.cocos2dx.cpp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -44,6 +46,7 @@ import com.libPay.BasePayAgent;
 import com.libPay.PayDef;
 import com.libPay.PayManager;
 import com.libPay.PayParams;
+import com.libSocial.SocialManager;
 import com.libVigame.VigameLoader;
 import com.vigame.CDKey;
 import com.vigame.CoreNative;
@@ -87,69 +90,9 @@ public class AppActivity extends Activity {
         XYXNative.init();
         String value = ADNative.getAdPositionParam("pause", "test");
         //设置广告回调
-        ADNative.setAdResultCallback(new ADManager.AdParamCallback() {
-
-            @Override
-            public void onStatusChanged(ADParam arg0, int arg1) {
-                // TODO Auto-generated method stub
-                Log.d(TAG, "onStatusChanged");
-            }
-
-            @Override
-            public void onRequestAddGameCoin(ADParam arg0, int arg1, int arg2,
-                                             String arg3) {
-                // TODO Auto-generated method stub
-                Log.d(TAG, "onRequestAddGameCoin");
-
-            }
-
-            @Override
-            public void onOpenResult(ADParam adParam, int result) {
-                // TODO Auto-generated method stub
-                //判断广告是否打开成功
-                if (result == ADParam.ADOpenResult_Success) {
-
-                }
-                //获取广告位名称
-                String positionName = adParam.getPositionName();
-
-                //判断广告类型是否是视频
-                if (adParam.getType().equals(ADDef.AD_TypeName_Video)) {
-
-                }
-
-                String log = "onOpenResult:" + result + ",type=" + adParam.getType() + ",agent=" + adParam.getAgentName() + ",positionName=" + positionName;
-                Log.d(TAG, log);
-                Toast.makeText(AppActivity.this, log, Toast.LENGTH_SHORT).show();
-            }
-        });
+        ADNative.setAdResultCallback(mADCallback);
         //设置支付回调
-        PayNative.setPayResultCallback(new PayManager.PayCallback() {
-
-            @Override
-            public void onPayFinish(PayParams params) {
-                // TODO Auto-generated method stub
-                switch (params.getPayResult()) {
-                    //支付成功
-                    case PayDef.PAY_RESULT_SUCCESS:
-                        break;
-                    //支付失败
-                    case PayDef.PAY_RESULT_FAIL:
-                        break;
-                    //取消支付
-                    case PayDef.PAY_RESULT_CANCEL:
-                        break;
-                }
-                freshButtonString();
-                showToast(params.getReason());
-            }
-
-            @Override
-            public void onInitPayAgentFinish(BasePayAgent arg0) {
-                // TODO Auto-generated method stub
-
-            }
-        });
+        PayNative.setPayResultCallback(mPayCallback);
         //设置关闭当前应用的代码
         PayNative.setGameExitCallback(new Runnable() {
 
@@ -160,8 +103,73 @@ public class AppActivity extends Activity {
                 System.exit(0);
             }
         });
+        SocialManager.getInstance().init();
+
         freshButtonString();
     }
+
+    ADManager.AdParamCallback mADCallback = new ADManager.AdParamCallback() {
+
+        @Override
+        public void onStatusChanged(ADParam arg0, int arg1) {
+            // TODO Auto-generated method stub
+            Log.d(TAG, "onStatusChanged");
+        }
+
+        @Override
+        public void onRequestAddGameCoin(ADParam arg0, int arg1, int arg2,
+        String arg3) {
+            // TODO Auto-generated method stub
+            Log.d(TAG, "onRequestAddGameCoin");
+
+        }
+
+        @Override
+        public void onOpenResult(ADParam adParam, int result) {
+            // TODO Auto-generated method stub
+            //判断广告是否打开成功
+            if (result == ADParam.ADOpenResult_Success) {
+
+            }
+            //获取广告位名称
+            String positionName = adParam.getPositionName();
+
+            //判断广告类型是否是视频
+            if (adParam.getType().equals(ADDef.AD_TypeName_Video)) {
+
+            }
+
+            String log = "onOpenResult:" + result + ",type=" + adParam.getType() + ",agent=" + adParam.getAgentName() + ",positionName=" + positionName;
+            Log.d(TAG, log);
+            Toast.makeText(AppActivity.this, log, Toast.LENGTH_SHORT).show();
+        }
+    };
+    PayManager.PayCallback mPayCallback = new PayManager.PayCallback() {
+
+        @Override
+        public void onPayFinish(PayParams params) {
+            // TODO Auto-generated method stub
+            switch (params.getPayResult()) {
+                //支付成功
+                case PayDef.PAY_RESULT_SUCCESS:
+                    break;
+                //支付失败
+                case PayDef.PAY_RESULT_FAIL:
+                    break;
+                //取消支付
+                case PayDef.PAY_RESULT_CANCEL:
+                    break;
+            }
+            freshButtonString();
+            showToast(params.getReason());
+        }
+
+        @Override
+        public void onInitPayAgentFinish(BasePayAgent arg0) {
+            // TODO Auto-generated method stub
+
+        }
+    };
 
     void freshButtonString() {
         int type = PayNative.getButtonType(1101);
@@ -268,8 +276,7 @@ public class AppActivity extends Activity {
                 UserAgreement.open();
                 break;
             case R.id.btn_pay:
-                PayNative.orderPay(1);
-                freshButtonString();
+                this.showPayDialog();
                 break;
             case R.id.btn_xyxOnShow: {
                 XYXConfig config = XYXNative.getConfig();
@@ -317,4 +324,27 @@ public class AppActivity extends Activity {
     }
 
 
+    private void showPayDialog(){
+        final String[] items = { "支付宝","微信","默认" };
+        AlertDialog.Builder listDialog =
+                new AlertDialog.Builder(AppActivity.this);
+        listDialog.setTitle("请选择支付方式");
+        listDialog.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:
+                        PayNative.orderPay(1, 1, PayDef.PAY_TYPE_AliPay,"");
+                        break;
+                    case 1:
+                        PayNative.orderPay(1, 1, PayDef.PAY_TYPE_WXPay,"");
+                        break;
+                    case 2://默认支付类型通过ConfigPay.xml配置
+                        PayNative.orderPay(1);
+                        break;
+                }
+            }
+        });
+        listDialog.show();
+    }
 }
