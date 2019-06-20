@@ -65,7 +65,7 @@ dependencies {
     android:value="abcdefg" />
 <meta-data
     android:name="com.vigame.sdk.prjid"
-    android:value="10001" />
+    android:value="333360" />
 <meta-data
     android:name="com.vigame.purchase.channel"
     android:value="${WB_CHANNEL}" />
@@ -296,7 +296,7 @@ userdata:用户数据
 
 
 ```
-orderPay(int id,int price，String userdata);
+orderPay(int id,int price, String userdata);
 ```
 
 id:游戏中定义的计费点id  
@@ -305,7 +305,7 @@ userdata:用户数据
 
 
 ```
-orderPay(int id, int price, int payType，String userdata);
+orderPay(int id, int price, int payType, String userdata);
 ```
 
 id:游戏中定义的计费点id  
@@ -591,11 +591,13 @@ WithSplashAD | 是否出现闪屏广告（默认出现） | 否
  
 **5.5 如何测试计费?**  
 解答：  
-在build.gradle中引入计费补丁进行测试，通常为支付宝。
-注意assets目录中需要放置ConfigPay.xml和feeedata_ali.xml文件。其中feedata_ali.xml的内容根据游戏计费设置自行配制。
+因为微信支付限制较多，建议使用支付宝测试。   
+首先确保在build.gradle中引入支付宝计费补丁；  
+然后注意assets目录中需要放置ConfigPay.xml和feeedata_ali.xml文件，其中feedata_ali.xml的内容根据游戏计费设置自行配制；  
+最后通过调用orderPay接口即可进行支付。
 
 **5.6 sdk接入成功后需要提供什么？**  
-解答：
+解答：  
 需要提供完整的Android工程文件，包括已编译好的so文件以及引用的本地模块。
 
 **5.7 为什么需要提供工程？是否有安全隐患？**  
@@ -603,4 +605,7 @@ WithSplashAD | 是否出现闪屏广告（默认出现） | 否
 提供工程文件的意义在于我们可以自行制作渠道上线包及针对广告做运营控制，将可以大大降低双方的沟通成本和工作量。  
 关于安全隐患，也不必担心。安卓工程本身并无法还原游戏源码。如果工程中有部分java代码不希望公开，可通过混淆的jar文件进行提供。
     
+**5.8 cp服务器能够查询支付回调通知吗？**  
+解答：  
+通常单机游戏可以通过客户端直接处理支付结果。如果部分游戏确实需要服务端处理支付结果的，需要给我们提供通知地址，我们服务器端在收到支付回调后转发给cp服务器。
 
