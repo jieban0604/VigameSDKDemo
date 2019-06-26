@@ -23,7 +23,7 @@
                 android:layout_marginRight="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:pause"
+                android:text="OpenAD:pause（插屏广告）"
                 android:textColor="#000000"
                 android:visibility="visible" />
 
@@ -36,7 +36,7 @@
                 android:layout_marginTop="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:banner"
+                android:text="OpenAD:banner（横幅广告）"
                 android:textColor="#000000"
                 android:visibility="visible" />
             <Button
@@ -48,7 +48,7 @@
                 android:layout_marginTop="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:home_mfzs"
+                android:text="OpenAD:home_mfzs（视频广告）"
                 android:textColor="#000000"
                 android:visibility="visible" />
 
@@ -61,12 +61,12 @@
                 android:layout_marginTop="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:level_fail_mfzs"
+                android:text="OpenAD:level_fail_mfzs（视频广告）"
                 android:textColor="#000000"
                 android:visibility="visible" />
 
             <Button
-                android:id="@+id/btn_openad4"
+                android:id="@+id/btn_openad44"
                 android:layout_width="match_parent"
                 android:layout_height="35dip"
                 android:layout_marginLeft="10dip"
@@ -74,10 +74,9 @@
                 android:layout_marginTop="10dip"
                 android:layout_weight="1"
                 android:onClick="onClickBtn"
-                android:text="OpenAD:splash"
+                android:text="OpenAD:yuans（原生广告）"
                 android:textColor="#000000"
                 android:visibility="visible" />
-
             <Button
                 android:id="@+id/btn_closeAd"
                 android:layout_width="match_parent"

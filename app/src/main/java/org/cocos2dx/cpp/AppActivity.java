@@ -34,6 +34,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -238,8 +239,14 @@ public class AppActivity extends Activity {
                 if (isAd)
                     ADNative.openAd("level_fail_mfzs");
                 break;
-            case R.id.btn_openad4:
-                ADNative.openAd("splash");
+            case R.id.btn_openad44:
+                DisplayMetrics dm = this.getResources().getDisplayMetrics();
+                int width = dm.widthPixels * 4 / 5;
+                int height = dm.heightPixels / 4;
+                int x = (dm.widthPixels-width) / 2;
+                int y = (dm.heightPixels-height) / 2;
+                Log.i(TAG,"x="+x+",y="+y+",width="+width+",height="+height);
+                ADNative.openAd("yuans", width, height, x, y);
                 break;
             case R.id.btn_closeAd:
                 ADNative.closeAd("banner");

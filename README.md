@@ -12,7 +12,7 @@
 2018/08/11 | V1.2.2 | 增加互推数据获取和响应；增加isAdOpen | Tyson
 2018/09/26 | V1.2.3 | 自动出现开屏；增加关卡广告控制 | Tyson
 2019/05/08 | V1.2.4 | 增加首次权限提示；广告回调中可查到广告位名称；投诉反馈功能；广告更新 | Tyson
-
+2019/06/26 | V1.2.5 | 支持64位cpu；支持原生广告；统计支持计算事件；广告更新 | Tyson
 ##### SDK下载地址：  
 
 链接：https://pan.baidu.com/s/1O0eDJeuLCpm6jo4eeQ3uXw   
@@ -111,7 +111,9 @@ public class MyApplication extends Application {
 
 
 
-
+## 1.4 注意事项
+### 1.4.1 关于targetSdkVersion
+因sdk并未完全兼容最新的安卓系统，targetSdkVersion勿使用28及以上版本，建议使用26.
 
 # 2.调用方法详解  
 ## 2.1基础功能模块  
@@ -452,9 +454,12 @@ TJNative.init();
 
 ### 2.4.2 自定义统计  
 ```
+//自定义计数事件
 TJNative.event(String eventId);
 TJNative.event(String eventId, String label);
 TJNative.event(String eventId, HashMap<String, String> attributes);
+//自定义计算事件
+TJNative.eventValue(String eventId, HashMap<String, String> attributes, int duration);
 
 ```
 eventId: 为当前统计的事件ID  
@@ -595,6 +600,7 @@ WithSplashAD | 是否出现闪屏广告（默认出现） | 否
 首先确保在build.gradle中引入支付宝计费补丁；  
 然后注意assets目录中需要放置ConfigPay.xml和feeedata_ali.xml文件，其中feedata_ali.xml的内容根据游戏计费设置自行配制；  
 最后通过调用orderPay接口即可进行支付。
+
 
 **5.6 sdk接入成功后需要提供什么？**  
 解答：  

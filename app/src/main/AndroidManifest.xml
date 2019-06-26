@@ -27,7 +27,7 @@
 
         <meta-data
             android:name="com.vigame.sdk.channel"
-            android:value="${WB_CHANNEL}" />
+            android:value="common" />
 
         <activity android:name="com.libVigame.VigameStartActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
